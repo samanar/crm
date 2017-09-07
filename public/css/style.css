@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lateef&subset=arabic');
+
+body {
+    font-family: 'Lateef', cursive !important;
+    font-size: 25px;
+    font-weight: normal;
+}
