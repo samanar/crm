@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@include('apartment.partials.delete_apartments_js')
+
 @section('content')
 
     <div class="page-header">
@@ -14,7 +16,10 @@
                     <a href="{{ route('apartment.edit' , $apartment->id) }}" class="btn btn-success btn-block btn-sm">ویرایش </a>
                 </div>
                 <div class="col-sm-6">
-                    <button class="btn btn-danger btn-block btn-sm" id="delete_apartmtne"> حذف</button>
+                    <button class="btn btn-danger btn-block btn-sm"
+                            id="delete_apartment"
+                            data-id="{{ $apartment->id }}" data-code="{{ $apartment->code }}"> حذف
+                    </button>
                 </div>
             </div>
         </div>

@@ -31,7 +31,8 @@
                 <td>
                     <a class="btn btn-primary" href="{{ route('apartment.show' , $apartment->id) }}">نمایش</a>
                     <a class="btn btn-success" href="{{ route ('apartment.edit' , $apartment->id) }}">ویرایش</a>
-                    <a data-id="{{ $apartment->id }}" class="delete_apartment btn btn-danger">حذف</a>
+                    <a data-id="{{ $apartment->id }}" data-code="{{ $apartment->code }}"
+                       class="delete_apartment btn btn-danger">حذف</a>
                 </td>
             </tr>
         @endforeach
