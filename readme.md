@@ -1,3 +1,2 @@
 ## Laravel crm
-### Satrap24.com
-#### Created by saman
+### Satrap24.com crm app 
