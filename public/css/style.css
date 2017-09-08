@@ -5,3 +5,71 @@ body {
     font-size: 25px;
     font-weight: normal;
 }
+
+input,textarea {
+    font-size: 1.2em !important;
+}
+
+.btn {
+    font-size: 1em !important;
+}
+
+.stacktable {
+    width: 100%;
+}
+
+.st-head-row {
+    padding-top: 1em;
+}
+
+.st-head-row.st-head-row-main {
+    font-size: 1.5em;
+    padding-top: 0;
+}
+
+.st-key {
+    width: 49%;
+    text-align: right;
+    padding-right: 1%;
+}
+
+.st-val {
+    width: 49%;
+    padding-left: 1%;
+}
+
+/* RESPONSIVE EXAMPLE */
+
+.stacktable.large-only {
+    display: table;
+}
+
+.stacktable.small-only {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .stacktable.large-only {
+        display: none;
+    }
+
+    .stacktable.small-only {
+        display: table;
+    }
+}
+.margin_top_5 {
+    margin-top: 5px !important;
+}
+
+
+.margin_top_10 {
+    margin-top: 10px !important;
+}
+
+.margin_top_20 {
+    margin-top: 20px !important;
+}
+
+.margin_top_30 {
+    margin-top: 30px !important;
+}

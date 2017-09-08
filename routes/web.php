@@ -13,3 +13,6 @@
 
 Route::get('/', 'pageController@getHome');
 Route::resource('apartment', 'ApartmentController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

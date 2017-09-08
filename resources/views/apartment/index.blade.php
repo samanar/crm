@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@include('apartment.partials.delete_apartments_js')
 
 @section('content')
     <div class="page-header">
@@ -7,7 +8,10 @@
         </h2>
         <p>تمامی آپارتمان های ثبت شده در سیستم در زیر لیست شده اند</p>
     </div>
-    <table id="table" class="table table-striped">
+
+    @include("layouts.flash")
+
+    <table id="table" class="table table-striped table-hover">
         <thead>
         <tr>
             <th>#</th>
@@ -20,11 +24,14 @@
         <tbody>
         @foreach($apartments as $apartment)
             <tr>
-                <td data-th="#">{{ $apartment->id }}</td>
-                <td data-th="کد آپارتمان">{{ $apartment->code }}</td>
-                <td data-th="نام مدیر">{{ $apartment->manager_name }}</td>
-                <td data-th="شماره تماس مدیر">{{ $apartment->manager_phone }}</td>
-                <td data-th="عملیات" class="bt-content">
+                <td>{{ $apartment->id }}</td>
+                <td>{{ $apartment->code }}</td>
+                <td>{{ $apartment->manager_name }}</td>
+                <td>{{ $apartment->manager_phone }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ route('apartment.show' , $apartment->id) }}">نمایش</a>
+                    <a class="btn btn-success" href="{{ route ('apartment.edit' , $apartment->id) }}">ویرایش</a>
+                    <a data-id="{{ $apartment->id }}" class="delete_apartment btn btn-danger">حذف</a>
                 </td>
             </tr>
         @endforeach
@@ -39,10 +46,9 @@
 @section('scripts')
     <script src="/js/responsive_table.js"></script>
     <script>
-        $('#table').basictable({
-            showEmptyCells: true,
-            tableWrap: true,
-            forceResponsive: true
+        $(document).ready(function () {
+            $('#table').stacktable();
         });
     </script>
 @endsection
+

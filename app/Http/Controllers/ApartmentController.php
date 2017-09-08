@@ -85,6 +85,7 @@ class ApartmentController extends Controller
 
         $apartment->save();
 
+        $request->session()->flash('success', "مجتمع جدید با کد $apartment->code با موفقیت ثبت شد ");
         return redirect()->route('apartment.index');
     }
 
@@ -96,7 +97,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        //
+        return view('apartment.show')->withApartment($apartment);
     }
 
     /**
@@ -107,7 +108,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
+        return view('apartment.edit')->withApartment($apartment);
     }
 
     /**
@@ -119,7 +120,22 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
-        //
+        $this->validate($request, $this->rules($apartment->id), $this->messages());
+
+        $apartment->code = $request->input('code');
+        $apartment->manager_name = $request->input('manager_name');
+        $apartment->manager_phone = $request->input('manager_phone');
+        $apartment->unit = $request->input('unit');
+        $apartment->age = $request->input('age');
+        $apartment->status = $request->input('status');
+        $apartment->introduction_method = $request->input('introduction_method');
+        $apartment->address = $request->input('address');
+        $apartment->description = $request->input('description');
+
+        $apartment->save();
+
+        $request->session()->flash('success', "اطلاعات مجتمع با کد $apartment->code با موفقیت ویرایش یافت");
+        return redirect()->route('apartment.index');
     }
 
     /**
@@ -130,6 +146,6 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
     }
 }
