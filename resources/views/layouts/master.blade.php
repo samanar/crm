@@ -9,8 +9,14 @@
         @yield('title','Satrap Crm')
     </title>
 
-    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png" >
-    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+    @if(Auth::check())
+        <link href="/css/themes/{{Auth::user()->theme}}.css" rel="stylesheet">
+
+    @else
+        <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    @endif
+
     <link href="{{ asset('css/bootstrap-rtl.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">

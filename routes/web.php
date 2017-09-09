@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'pageController@getHome');
-Route::resource('apartment', 'ApartmentController');
 Auth::routes();
-
+Route::resource('apartment', 'ApartmentController');
+Route::post('/theme', 'ThemeController@changeTheme')->name('user.theme');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'pageController@getHome');
+

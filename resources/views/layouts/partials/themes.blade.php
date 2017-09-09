@@ -1,0 +1,17 @@
+<option value="0">Flatly</option>
+<option value="1">Cerulean</option>
+<option value="2">Cosmo</option>
+<option value="3">Cyborg</option>
+<option value="4">Darkly</option>
+<option value="5">Journal</option>
+<option value="6">Lumen</option>
+<option value="7">Paper</option>
+<option value="8">Readable</option>
+<option value="9">Sandstone</option>
+<option value="10">Simplex</option>
+<option value="11">Slate</option>
+<option value="12">Solar</option>
+<option value="13">Spacelab</option>
+<option value="14">Superhero</option>
+<option value="15">United</option>
+<option value="16">Yeti</option>
