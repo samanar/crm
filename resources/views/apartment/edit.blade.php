@@ -114,9 +114,9 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script src="/js/validator.min.js"></script>
     <script>
         $('form').validator();
     </script>
-@endsection
+@endpush

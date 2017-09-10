@@ -10,18 +10,18 @@
     </title>
 
     <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
-    @if(Auth::check())
+    @if( Auth::check() )
         <link href="/css/themes/{{Auth::user()->theme}}.css" rel="stylesheet">
-
     @else
         <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
     @endif
 
     <link href="{{ asset('css/bootstrap-rtl.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-toggle.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    @yield('stylesheets')
+    @stack('stylesheets')
 </head>
 <body>
 
@@ -31,9 +31,9 @@
     @yield('content')
 </div>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/script.js"></script>
-@yield('scripts')
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+@stack('scripts')
 </body>
 </html>

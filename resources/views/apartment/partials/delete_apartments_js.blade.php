@@ -1,8 +1,8 @@
-@section('stylesheets')
+@push('stylesheets')
     <link rel="stylesheet" href="{{ asset('css/alert.min.css') }}">
-@endsection
+@endpush
 
-@section('scripts')
+@push('scripts')
     <script src="{{ asset('js/alert.min.js') }}"></script>
 
     <script>
@@ -72,4 +72,4 @@
             });
         });
     </script>
-@endsection
+@endpush

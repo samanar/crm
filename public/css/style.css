@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lateef&subset=arabic');
+@import url('https://fonts.googleapis.com/css?family=Princess+Sofia');
 
 body {
     font-family: 'Lateef', cursive !important;
@@ -72,4 +73,9 @@ input,textarea {
 
 .margin_top_30 {
     margin-top: 30px !important;
+}
+
+.navbar-brand {
+    font-family: 'Princess Sofia', cursive;
+    font-size: 1em;
 }

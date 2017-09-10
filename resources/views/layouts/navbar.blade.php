@@ -1,3 +1,6 @@
+@push('stylesheets')
+
+@endpush
 <nav class="navbar navbar-inverse ">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -8,20 +11,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="/">
+                Satrap Crm
+            </a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-                <li class="active" data-toggle="modal" data-target="#myModal">
-                    <a href="#">
-                        <i class="fa fa-slack" aria-hidden="true"></i>
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li><a href="#">Link</a></li>
+                @if( Auth::check() )
+                    <li class="active" data-toggle="modal" data-target="#myModal">
+                        <a>
+                            <i class="fa fa-slack" aria-hidden="true"></i>
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Action</a></li>
@@ -34,23 +40,11 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Theme
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
+
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/login">Login</a></li>
             </ul>
         </div>
     </div>
@@ -60,15 +54,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">تغییر ظاهر</h4>
+                <h4 class="modal-title">تغییر ظاهر سیستم</h4>
             </div>
             <div class="modal-body">
                 <form action="{{ route('user.theme') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="theme" class="control-label">ظاهر :</label>
+                        <label for="theme" class="control-label">ظاهر جدید را انتخاب کنید :</label>
                         <select name="theme" id="theme" class="form-control">
                             @include('layouts.partials.themes')
                         </select>
@@ -84,7 +79,8 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-@section('scripts')
+@push('scripts')
+    <script src="{{ asset('js/bootstrap-toggle.min.js') }}"></script>
     <script>
         $(document).ready(function () {
             $("#theme_modal_submit").click(function () {
@@ -92,4 +88,5 @@
             });
         });
     </script>
-@endsection
+@endpush
+

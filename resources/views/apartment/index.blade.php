@@ -44,12 +44,12 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script src="/js/responsive_table.js"></script>
     <script>
         $(document).ready(function () {
             $('#table').stacktable();
         });
     </script>
-@endsection
+@endpush
 
