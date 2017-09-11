@@ -1,6 +1,3 @@
-@push('stylesheets')
-
-@endpush
 <nav class="navbar navbar-inverse ">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -19,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
                 @if( Auth::check() )
-                    <li class="active" data-toggle="modal" data-target="#myModal">
+                    <li class="active theme_changer" data-toggle="modal" data-target="#myModal">
                         <a>
                             <i class="fa fa-slack" aria-hidden="true"></i>
                             <span class="sr-only">(current)</span>
@@ -68,6 +65,15 @@
                             @include('layouts.partials.themes')
                         </select>
                     </div>
+                    <div class="form-group text-center">
+                        @if( Auth::user()->rtl )
+                            <input type="checkbox" class="form-control" name="rtl"
+                                   id="checkbox">
+                        @else
+                            <input type="checkbox" class="form-control" name="rtl"
+                                   id="checkbox" checked>
+                        @endif
+                    </div>
                     <input type="submit" style="display: none;" id="theme_submit">
                 </form>
             </div>
@@ -80,9 +86,21 @@
 </div><!-- /.modal -->
 
 @push('scripts')
-    <script src="{{ asset('js/bootstrap-toggle.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-switch.min.js') }}"></script>
     <script>
         $(document).ready(function () {
+            $('#checkbox').bootstrapSwitch({
+                animate: true,
+                size: 'large',
+                onColor: 'success',
+                offColor: 'warning',
+                onText: 'چپ به راست',
+                offText: 'راست به چپ',
+                labelWidth: '50px',
+                labelText: 'جهت سایت ؟',
+                handleWidth: '90px'
+            });
+
             $("#theme_modal_submit").click(function () {
                 $("#theme_submit").click();
             });

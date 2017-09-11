@@ -16,9 +16,19 @@
         <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
     @endif
 
-    <link href="{{ asset('css/bootstrap-rtl.min.css')}}" rel="stylesheet">
+    @auth
+        @if( Auth::user()->rtl == 1)
+            <link href="{{ asset('css/bootstrap-rtl.min.css')}}" rel="stylesheet">
+        @endif
+    @endauth
+
+    @guest
+        <link href="{{ asset('css/bootstrap-rtl.min.css')}}" rel="stylesheet">
+    @endguest
+
+
     <link href="{{ asset('css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-toggle.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-switch.min.css') }}">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     @stack('stylesheets')

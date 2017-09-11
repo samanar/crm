@@ -7,7 +7,7 @@ body {
     font-weight: normal;
 }
 
-input,textarea {
+input, textarea {
     font-size: 1.2em !important;
 }
 
@@ -58,10 +58,10 @@ input,textarea {
         display: table;
     }
 }
+
 .margin_top_5 {
     margin-top: 5px !important;
 }
-
 
 .margin_top_10 {
     margin-top: 10px !important;
@@ -78,4 +78,9 @@ input,textarea {
 .navbar-brand {
     font-family: 'Princess Sofia', cursive;
     font-size: 1em;
+}
+
+.theme_changer {
+    cursor: pointer;
+
 }

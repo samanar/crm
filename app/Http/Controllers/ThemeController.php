@@ -35,12 +35,15 @@ class ThemeController extends Controller
 
     public function changeTheme(Request $request)
     {
+
         $this->validate($request, [
-            'theme' => 'required|integer'
+            'theme' => 'required|integer',
+            'rtl' => 'nullable'
         ]);
 
         $user = Auth::user();
         $user->theme = $request->input('theme');
+        $user->rtl = ($request->input('rtl')) ? 0 : 1;
         $user->save();
         return redirect()->home();
 
