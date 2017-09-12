@@ -13,7 +13,7 @@ class ApartmentController extends Controller
         return [
             'code' => "required|max:255|unique:apartments,code,$id",
             'manager_name' => 'required|max:255',
-            'manager_phone' => 'required|integer',
+            'manager_phone' => 'required|numeric',
             'unit' => 'nullable|integer',
             'age' => 'nullable|integer',
             'status' => 'nullable|integer',
@@ -32,7 +32,7 @@ class ApartmentController extends Controller
             'manager_name.required' => 'نام مدیر اجباری است',
             'manager_name.max' => 'نام مدیر نباید بیشتر از ۲۵۵ کاراکتر باشد',
             'manager_phone.required' => 'شماره تماس مدیر اجباری است',
-            'manager_phone.integer' => 'شماره تماس وارد شده صحیح نمیباشد',
+            'manager_phone.numeric' => 'شماره تماس وارد شده صحیح نمیباشد',
             'unit.integer' => 'تعداد واحد وارد شده صحیح نمیباشد',
             'age.integer' => 'عمر بنا وارد شده صحیح نمیباشد',
             'status.integer' => 'وضعیت وارد شده صحیح نمیباشد',

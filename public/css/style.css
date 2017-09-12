@@ -82,5 +82,8 @@ input, textarea {
 
 .theme_changer {
     cursor: pointer;
+}
 
+.alert {
+    direction: rtl !important;
 }

@@ -88,9 +88,7 @@
                         <div class="form-group">
                             <label for="manager_phone" class="control-label">توضیحات :</label>
                             <textarea name="description" id="description" class="form-control" rows="5"
-                                      placeholder="توضیحات اضافی درباره ی مجتمع">
-
-                        </textarea>
+                                      placeholder="توضیحات اضافی درباره ی مجتمع"></textarea>
                         </div>
 
                         <div class="form-group">

@@ -66,6 +66,7 @@
                         </select>
                     </div>
                     <div class="form-group text-center">
+                        @auth`
                         @if( Auth::user()->rtl )
                             <input type="checkbox" class="form-control" name="rtl"
                                    id="checkbox">
@@ -73,6 +74,7 @@
                             <input type="checkbox" class="form-control" name="rtl"
                                    id="checkbox" checked>
                         @endif
+                        @endauth
                     </div>
                     <input type="submit" style="display: none;" id="theme_submit">
                 </form>

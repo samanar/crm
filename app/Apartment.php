@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model
 {
-
+    public function basic_information()
+    {
+        return $this->hasOne('App\BasicInformation');
+    }
 }
