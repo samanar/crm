@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Apartment;
 use Illuminate\Http\Request;
+use App\BasicInformation;
 
 class ApartmentController extends Controller
 {
@@ -151,6 +152,7 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        BasicInformation::deleted($apartment->basic_information_id);
         $apartment->delete();
     }
 }

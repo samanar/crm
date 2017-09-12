@@ -87,3 +87,10 @@ input, textarea {
 .alert {
     direction: rtl !important;
 }
+
+.well {
+    padding : 35px !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

@@ -128,7 +128,7 @@ class BasicInformationController extends Controller
      */
     public function show(BasicInformation $basicInformation)
     {
-        //
+
     }
 
     /**
@@ -137,9 +137,10 @@ class BasicInformationController extends Controller
      * @param  \App\BasicInformation $basicInformation
      * @return \Illuminate\Http\Response
      */
-    public function edit(BasicInformation $basicInformation)
+    public function edit($id)
     {
-        //
+        $basic_information = BasicInformation::find($id);
+        return view('basic_information.edit', ['basic_information' => $basic_information]);
     }
 
     /**

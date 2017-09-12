@@ -2,12 +2,14 @@
 
 
 @section('content')
-    <div class="page-header">
-        <h2>
-            <i class="fa fa-plus-square-o" aria-hidden="1"></i> افزودن اطلاعات پایه مجتمع با کد {{ $apartment->code }}
-        </h2>
-        <p>برای افزودن اطلاعات پایه مجتمع فرم زیر را پر کنید</p>
+
+    <h2>
+        <i class="fa fa-plus-square-o" aria-hidden="true"></i> ویرایش اطلاعات مجتمع مسکونی با
+        کد {{ $basic_information->apartment->code }}
+    </h2>
+    <p>برای افزودن مجتمع جدید به سیستم فرم زیر را پر کنید</p>
     </div>
+
 
     <div class="container">
         @include('layouts.errors')
@@ -17,11 +19,12 @@
                       class="form-horizontal"
                       data-toggle="validator" role="form">
                     {{ csrf_field() }}
-                    <input type="hidden" name="apartment_id" value="{{ Crypt::encrypt($apartment->id) }}">
+                    <input type="hidden" name="apartment_id"
+                           value="{{ Crypt::encrypt($basic_information->apartment->id) }}">
                     <div class="form-group">
                         <label for="address">آدرس مجتمع</label>
                         <input type="text" class="form-control" id="address" name="address"
-                               value="{{ $apartment->address }}"
+                               value="{{ $basic_information->apartment->address }}"
                                data-error="وارد کردن آدرس اجباری است"
                                required>
                         <div class="help-block with-errors"></div>
@@ -31,7 +34,7 @@
                             <div class="form-group">
                                 <label for="unit">تعداد واحد</label>
                                 <input type="number" class="form-control" id="address" name="unit"
-                                       value="{{ $apartment->unit }}"
+                                       value="{{ $basic_information->apartment->unit }}"
                                        data-error="تعداد واحد باید به عدد وارد شود">
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -40,7 +43,8 @@
                             <div class="form-group">
                                 <label for="floor">تعداد طبقه</label>
                                 <input type="number" class="form-control" id="floor" name="floor"
-                                       data-error="تعداد طبقه باید به عدد وارد شود">
+                                       data-error="تعداد طبقه باید به عدد وارد شود"
+                                       value="{{ $basic_information->floor }}">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -49,7 +53,8 @@
                                 <label for="unit_in_floor">تعداد واحد در طبقه</label>
                                 <input type="number" class="form-control" id="unit_in_floor"
                                        name="unit_in_floor"
-                                       data-error="تعداد واحد باید به عدد وارد شود">
+                                       data-error="تعداد واحد باید به عدد وارد شود"
+                                       value="{{ $basic_information->unit_in_floor }}">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -57,7 +62,7 @@
                             <div class="form-group">
                                 <label for="age">عمر بنا</label>
                                 <input type="number" class="form-control" id="age" name="age"
-                                       value="{{ $apartment->age }}"
+                                       value="{{ $basic_information->apartment->age }}"
                                        data-error="عمر بنا باید به عدد وارد شود">
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -69,7 +74,7 @@
                                 <label for="manager_name">نام مدیر</label>
                                 <input type="text" class="form-control" id="manager_name"
                                        name="manager_name"
-                                       value="{{ $apartment->manager_name }}"
+                                       value="{{ $basic_information->apartment->manager_name }}"
                                        data-error="وارد کردن نام مدیر اجباری است"
                                        required>
                                 <div class="help-block with-errors"></div>
@@ -80,7 +85,7 @@
                                 <label for="manager_phone">شماره تماس</label>
                                 <input type="text" class="form-control" id="manager_phone"
                                        name="manager_phone"
-                                       value="{{ $apartment->manager_phone }}"
+                                       value="{{ $basic_information->apartment->manager_phone }}"
                                        data-error="وارد کردن شماره تماس اجباری است"
                                        required>
                                 <div class="help-block with-errors"></div>
@@ -244,7 +249,8 @@
                             <label for="elevator_count" class="label-control">تعداد آسانسور:</label>
                             <input type="number" class="form-control" name="elevator_count"
                                    id="elevator_count"
-                                   data-error="تعداد آسانسور باید به عدد وارد شود">
+                                   data-error="تعداد آسانسور باید به عدد وارد شود"
+                                   value="{{ $basic_information->elevator_count }}">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -253,7 +259,8 @@
                             <label for="" class="label-control">ظرفیت آسانسور</label>
                             <input type="number" name="elevator_capacity" class="form-control"
                                    id="elevator_capacity"
-                                   data-error="ظرفیت آسانسور باید به عدد وارد شود">
+                                   data-error="ظرفیت آسانسور باید به عدد وارد شود"
+                                   value="{{ $basic_information->elevator_capacity }}">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -263,7 +270,8 @@
                             <input type="text" name="cooling_system" id="cooling_system"
                                    class="form-control"
                                    maxlength="255"
-                                   data-error="سیستم سرمایشی نباید بیشتر از ۲۵۵ کاراکتر باشد">
+                                   data-error="سیستم سرمایشی نباید بیشتر از ۲۵۵ کاراکتر باشد"
+                                   value="{{ $basic_information->cooling_system }}">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -273,7 +281,8 @@
                             <input type="text" name="heating_system" id="heating_system"
                                    class="form-control"
                                    maxlength="255"
-                                   data-error="سیستم گرمایشی نباید بیشتر از ۲۵۵ کاراکتر باشد">
+                                   data-error="سیستم گرمایشی نباید بیشتر از ۲۵۵ کاراکتر باشد"
+                                   value="{{ $basic_information->heating_system }}">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -282,7 +291,8 @@
                         <div class="form-group">
                             <label for="first_visit" class="control-label">اولین مراجعه</label>
                             <input type="text" name="first_visit" id="first_visit"
-                                   class="form-control">
+                                   class="form-control"
+                                   value="{{ $basic_information->first_visit }}">
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -296,14 +306,15 @@
                             <label for="marketer_name" class="control-label"> نام بازاریاب</label>
                             <input type="text" name="marketer_name" id="marketer_name"
                                    class="form-control" maxlength="255"
-                                   data-error="فیلد بازاریاب نباید بیشتر از ۲۵۵ کاراکتر باشد">
+                                   data-error="فیلد بازاریاب نباید بیشتر از ۲۵۵ کاراکتر باشد"
+                                   value="{{ $basic_information->marketer_name }}">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label">توضیحات</label>
                         <textarea name="marketer_description" id="marketer_description" rows="5"
-                                  class="form-control"></textarea>
+                                  class="form-control">{{ $basic_information->marketer_description }}</textarea>
                     </div>
 
                     <div class="col-sm-6">
@@ -312,7 +323,8 @@
                             <input type="text" name="technical_visit" id="technical_visit"
                                    class="form-control"
                                    maxlength="255"
-                                   data-error="زمان تعیین شده نباید بیشتر از ۲۵۵ کاراکتر باشد">
+                                   data-error="زمان تعیین شده نباید بیشتر از ۲۵۵ کاراکتر باشد"
+                                   value="{{ $basic_information->technical_visit }}">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -322,7 +334,8 @@
                             <input type="text" name="technician_name" id="technician_name"
                                    class="form-control"
                                    maxlength="255"
-                                   data-error="فیلد کارشناس فنی نباید بیشتر از ۲۵۵ کاراکتر باشد">
+                                   data-error="فیلد کارشناس فنی نباید بیشتر از ۲۵۵ کاراکتر باشد"
+                                   value="{{ $basic_information->technician_name }}">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -330,7 +343,7 @@
                     <div class="form-group">
                         <label for="" class="control-label">توضیحات</label>
                         <textarea name="technical_description" id="technical_description" rows="5"
-                                  class="form-control"></textarea>
+                                  class="form-control">{{ $basic_information->technical_description }}</textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary btn-block" value="افزودن اطلاعات پایه ">

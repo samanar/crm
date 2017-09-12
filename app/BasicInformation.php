@@ -8,6 +8,6 @@ class BasicInformation extends Model
 {
     public function apartment()
     {
-        return $this->hasOne('App\Apartment');
+        return $this->belongsTo('App\Apartment');
     }
 }

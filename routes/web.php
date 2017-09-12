@@ -23,6 +23,8 @@ Route::get('basic_information/create/{apartment_id}', 'BasicInformationControlle
     ->name('basic_information.create');
 Route::post('basic_information/store', 'BasicInformationController@store')
     ->name('basic_information.store');
+Route::get('basic_information/{id}/edit', 'BasicInformationController@edit')
+    ->name('basic_information.edit');
 
 // pages
 Route::post('/theme', 'ThemeController@changeTheme')->name('user.theme');
