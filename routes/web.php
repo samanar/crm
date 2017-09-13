@@ -15,16 +15,14 @@
 //auth routes
 Auth::routes();
 
-// apartment resource routes
-Route::resource('apartment', 'ApartmentController');
 
 // basic_information resource routes
+Route::resource('basic_information', 'BasicInformationController', ['except' => ['create']]);
 Route::get('basic_information/create/{apartment_id}', 'BasicInformationController@create')
     ->name('basic_information.create');
-Route::post('basic_information/store', 'BasicInformationController@store')
-    ->name('basic_information.store');
-Route::get('basic_information/{id}/edit', 'BasicInformationController@edit')
-    ->name('basic_information.edit');
+
+// apartment resource routes
+Route::resource('apartment', 'ApartmentController');
 
 // pages
 Route::post('/theme', 'ThemeController@changeTheme')->name('user.theme');

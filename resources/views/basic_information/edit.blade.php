@@ -15,12 +15,12 @@
         @include('layouts.errors')
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 well">
-                <form method="POST" action="{{ route('basic_information.store') }}"
+                <form method="post" action="{{ route('basic_information.update' , $basic_information->id) }}"
                       class="form-horizontal"
                       data-toggle="validator" role="form">
+                    {{ method_field('PATCH') }}
                     {{ csrf_field() }}
-                    <input type="hidden" name="apartment_id"
-                           value="{{ Crypt::encrypt($basic_information->apartment->id) }}">
+
                     <div class="form-group">
                         <label for="address">آدرس مجتمع</label>
                         <input type="text" class="form-control" id="address" name="address"
@@ -348,6 +348,8 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary btn-block" value="افزودن اطلاعات پایه ">
                     </div>
+
+
                 </form>
             </div>
         </div>
