@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="page-header">
-        <h2><i class="fa fa-info-circle" aria-hidden="true"></i> اطلاعات مجتمع </h2>
+        <h2><i class="fa fa-info-circle" aria-hidden="true"></i>اطلاعات مجتمع </h2>
         <p>در این قسمت میتواند تمام اطلاعات مجتمع مورد نظر را مشاهده نمایید</p>
     </div>
 
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 well margin_top_20">
+            <div class="col-sm-10 col-sm-offset-1 well margin_top_20">
                 <div class="row">
                     <div class="col-sm-3">کد مجتمع :</div>
                     <div class="col-sm-9">{{ $apartment->code }}</div>

@@ -53,6 +53,8 @@ class BasicInformationController extends Controller
      */
     public function index()
     {
+        $basic_informations = BasicInformation::paginate(10);
+        return view('basic_information.index')->with('basic_informations', $basic_informations);
     }
 
     /**
@@ -128,7 +130,10 @@ class BasicInformationController extends Controller
      */
     public function show(BasicInformation $basicInformation)
     {
-
+        $apartment = $basicInformation->apartment;
+        return view('basic_information.show')
+            ->with('basic_information', $basicInformation)
+            ->with('apartment', $apartment);
     }
 
     /**
