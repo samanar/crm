@@ -24,7 +24,9 @@ class TechnicalInformationController extends Controller
      */
     public function index()
     {
-        return redirect()->route('home');
+        $technical_informations = TechnicalInformation::paginate(10);
+        return view('technical_information.index')
+            ->with('technical_informations', $technical_informations);
     }
 
     /**
@@ -67,7 +69,9 @@ class TechnicalInformationController extends Controller
 
         $technical_information->save();
 
-        $request->session()->flash('success', "اطلاعات فنی مجتمع با کد $technical_information->apartment->code با موفقیت ثبت شد");
+        $code = $technical_information->apartment->code;
+
+        $request->session()->flash('success', "اطلاعات فنی مجتمع با کد $code با موفقیت ثبت شد");
 
         return redirect()->route('technical_information.index');
     }
@@ -121,7 +125,9 @@ class TechnicalInformationController extends Controller
         $technical_information->total_description = $request->input('total_description');
 
         $technical_information->save();
-        $request->session()->flash('success', "اطلاعات فنی مجتمع با کد $technical_information->apartment->code با موفقیت ویرایش شد");
+
+        $code = $technical_information->apartment->code;
+        $request->session()->flash('success', "اطلاعات فنی مجتمع با کد $code با موفقیت ویرایش شد");
 
         return redirect()->route('technical_information.index');
     }
@@ -135,6 +141,6 @@ class TechnicalInformationController extends Controller
     public
     function destroy(TechnicalInformation $technicalInformation)
     {
-        //
+        $technicalInformation->delete();
     }
 }
