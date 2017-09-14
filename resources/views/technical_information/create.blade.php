@@ -9,7 +9,6 @@
         <p>برای افزودن چک لیست اطلاعات فنی جدید به مجتمع فرم زیر را پر کنید</p>
     </div>
 
-
     <div class="container">
         @include('layouts.errors')
         <div class="row">
@@ -88,15 +87,16 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <label class="radio-inline">
-                                            <input type="radio" name="heating_cooling_system_status" value="0" checked>عدم تایید
+                                            <input type="radio" name="heating_cooling_system_status" value="0" checked>عدم
+                                            تایید
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-grout">
-                                <label for="heating_cooling_system_descriptino" class="control-label">توضیحات</label>
-                                <textarea name="heating_cooling_system_descriptino"
-                                          id="heating_cooling_system_descriptino"
+                                <label for="heating_cooling_system_description" class="control-label">توضیحات</label>
+                                <textarea name="heating_cooling_system_description"
+                                          id="heating_cooling_system_description"
                                           rows="3"
                                           class="form-control"></textarea>
                             </div>
@@ -121,9 +121,9 @@
                                 </div>
                             </div>
                             <div class="form-grout">
-                                <label for="door_descriptino" class="control-label">توضیحات</label>
-                                <textarea name="door_descriptino"
-                                          id="door_descriptino"
+                                <label for="door_description" class="control-label">توضیحات</label>
+                                <textarea name="door_description"
+                                          id="door_description"
                                           rows="3"
                                           class="form-control"></textarea>
                             </div>
@@ -148,12 +148,16 @@
                                 </div>
                             </div>
                             <div class="form-grout">
-                                <label for="total_descriptino" class="control-label">توضیحات</label>
-                                <textarea name="total_descriptino"
-                                          id="total_descriptino"
+                                <label for="total_description" class="control-label">توضیحات</label>
+                                <textarea name="total_description"
+                                          id="total_description"
                                           rows="3"
                                           class="form-control"></textarea>
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-block" value="ثبت اطلاعات">
                         </div>
 
                     </fieldset>
@@ -162,10 +166,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="/js/validator.min.js"></script>
-    <script>
-        $('form').validator();
-    </script>
-@endpush

@@ -21,15 +21,15 @@ class CreateTechnicalInformationsTable extends Migration
                 ->on('apartments')
                 ->onDelete('cascade');;
             $table->boolean('elevator_status')->nullable();
-            $table->text('elevator_descriptino')->nullable();
+            $table->text('elevator_description')->nullable();
             $table->boolean('engine_room_status')->nullable();
-            $table->text('engine_room_descriptino')->nullable();
+            $table->text('engine_room_description')->nullable();
             $table->boolean('heating_cooling_system_status')->nullable();
-            $table->text('heating_cooling_system_descriptino')->nullable();
+            $table->text('heating_cooling_system_description')->nullable();
             $table->boolean('door_status')->nullable();
-            $table->text('door_descriptino')->nullable();
+            $table->text('door_description')->nullable();
             $table->boolean('total_status')->nullable();
-            $table->text('total_descriptino')->nullable();
+            $table->text('total_description')->nullable();
             $table->timestamps();
         });
     }

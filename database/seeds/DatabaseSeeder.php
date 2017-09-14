@@ -31,5 +31,11 @@ class DatabaseSeeder extends Seeder
             ['fileName' => "15", 'themeName' => "United"],
             ['fileName' => "16", 'themeName' => "Yeti"]
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'saman',
+            'email' => 'ahmadianrad.saman@gmail.com',
+            'password' => bcrypt('0019421664'),
+        ]);
     }
 }
