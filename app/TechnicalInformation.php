@@ -8,6 +8,6 @@ class TechnicalInformation extends Model
 {
     public function apartment()
     {
-        $this->belongsTo('App\Apartment');
+        return $this->belongsTo('App\Apartment');
     }
 }

@@ -2,12 +2,12 @@
 
 
 @section('content')
-
-    <h2>
-        <i class="fa fa-plus-square-o" aria-hidden="true"></i> ویرایش اطلاعات مجتمع مسکونی با
-        کد {{ $basic_information->apartment->code }}
-    </h2>
-    <p>برای افزودن مجتمع جدید به سیستم فرم زیر را پر کنید</p>
+    <div class="page-header">
+        <h2>
+            <i class="fa fa-plus-square-o" aria-hidden="true"></i> ویرایش اطلاعات مجتمع مسکونی با
+            کد {{ $basic_information->apartment->code }}
+        </h2>
+        <p>برای ویرایش اطلاعات پایه مجتمع  فرم زیر را ثبت کنید</p>
     </div>
 
 
@@ -101,7 +101,7 @@
                             <div class="col-sm-4">
                                 <label class="radio-inline">
                                     <input type="radio" name="pool" value="1"
-                                    @if($basic_information->pool) checked @endif>‌دارد
+                                           @if($basic_information->pool) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">

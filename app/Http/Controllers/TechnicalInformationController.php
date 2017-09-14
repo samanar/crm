@@ -67,6 +67,8 @@ class TechnicalInformationController extends Controller
 
         $technical_information->save();
 
+        $request->session()->flash('success', "اطلاعات فنی مجتمع با کد $technical_information->apartment->code با موفقیت ثبت شد");
+
         return redirect()->route('technical_information.index');
     }
 
@@ -78,7 +80,8 @@ class TechnicalInformationController extends Controller
      */
     public function show(TechnicalInformation $technicalInformation)
     {
-
+        return view('technical_information.show')
+            ->with('technical_information', $technicalInformation);
     }
 
     /**
@@ -87,9 +90,11 @@ class TechnicalInformationController extends Controller
      * @param  \App\TechnicalInformation $technicalInformation
      * @return \Illuminate\Http\Response
      */
-    public function edit(TechnicalInformation $technicalInformation)
+    public
+    function edit(TechnicalInformation $technicalInformation)
     {
-        //
+        return view('technical_information.edit')
+            ->with('technical_information', $technicalInformation);
     }
 
     /**
@@ -99,9 +104,26 @@ class TechnicalInformationController extends Controller
      * @param  \App\TechnicalInformation $technicalInformation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TechnicalInformation $technicalInformation)
+    public
+    function update(Request $request, TechnicalInformation $technicalInformation)
     {
-        //
+
+        $technical_information = $technicalInformation;
+        $technical_information->elevator_status = $request->input('elevator_status');
+        $technical_information->elevator_description = $request->input('elevator_description');
+        $technical_information->door_status = $request->input('door_status');
+        $technical_information->door_description = $request->input('door_description');
+        $technical_information->engine_room_status = $request->input('engine_room_status');
+        $technical_information->engine_room_description = $request->input('engine_room_description');
+        $technical_information->heating_cooling_system_status = $request->input('heating_cooling_system_status');
+        $technical_information->heating_cooling_system_description = $request->input('heating_cooling_system_description');
+        $technical_information->total_status = $request->input('total_status');
+        $technical_information->total_description = $request->input('total_description');
+
+        $technical_information->save();
+        $request->session()->flash('success', "اطلاعات فنی مجتمع با کد $technical_information->apartment->code با موفقیت ویرایش شد");
+
+        return redirect()->route('technical_information.index');
     }
 
     /**
@@ -110,7 +132,8 @@ class TechnicalInformationController extends Controller
      * @param  \App\TechnicalInformation $technicalInformation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TechnicalInformation $technicalInformation)
+    public
+    function destroy(TechnicalInformation $technicalInformation)
     {
         //
     }

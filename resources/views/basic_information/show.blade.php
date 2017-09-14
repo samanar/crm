@@ -7,7 +7,7 @@
     <div class="page-header">
         <h2><i class="fa fa-info-circle" aria-hidden="true"></i> اطلاعات پایه مجتمع با
             کد {{ $basic_information->apartment->code }} </h2>
-        <p>در این قسمت میتواند تمام اطلاعات مجتمع مورد نظر را مشاهده نمایید</p>
+        <p>در این قسمت میتواند تمام اطلاعات پایه مجتمع مورد نظر را مشاهده نمایید</p>
     </div>
 
     <div class="container">
