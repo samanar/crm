@@ -100,12 +100,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="pool" value="1">‌دارد
+                                    <input type="radio" name="pool" value="1"
+                                    @if($basic_information->pool) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="pool" value="0" checked>ندارد
+                                    <input type="radio" name="pool" value="0"
+                                           @if(!$basic_information->pool) checked @endif>ندارد
                                 </label>
                             </div>
 
@@ -116,12 +118,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="antenna" value="1">‌دارد
+                                    <input type="radio" name="antenna" value="1"
+                                           @if($basic_information->antenna) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="antenna" value="0" checked>ندارد
+                                    <input type="radio" name="antenna" value="0"
+                                           @if(!$basic_information->antenna) checked @endif>ندارد
                                 </label>
                             </div>
                         </div>
@@ -134,12 +138,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="sauna" value="1">‌دارد
+                                    <input type="radio" name="sauna" value="1"
+                                           @if($basic_information->sauna) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="sauna" value="0" checked>ندارد
+                                    <input type="radio" name="sauna" value="0"
+                                           @if(!$basic_information->sauna) checked @endif>ندارد
                                 </label>
                             </div>
 
@@ -150,12 +156,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="door" value="1">‌دارد
+                                    <input type="radio" name="door" value="1"
+                                           @if($basic_information->door) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="door" value="0" checked>ندارد
+                                    <input type="radio" name="door" value="0"
+                                           @if(!$basic_information->door) checked @endif>ندارد
                                 </label>
                             </div>
                         </div>
@@ -167,12 +175,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="power_meter" value="1">‌دارد
+                                    <input type="radio" name="power_meter" value="1"
+                                           @if($basic_information->power_meter) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="power_meter" value="0" checked>ندارد
+                                    <input type="radio" name="power_meter" value="0"
+                                           @if(!$basic_information->power_meter) checked @endif>ندارد
                                 </label>
                             </div>
 
@@ -183,12 +193,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="announcement_board" value="1">‌دارد
+                                    <input type="radio" name="announcement_board" value="1"
+                                           @if($basic_information->announcement_board) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="announcement_board" value="0" checked>ندارد
+                                    <input type="radio" name="announcement_board" value="0"
+                                           @if(!$basic_information->announcement_board) checked @endif>ندارد
                                 </label>
                             </div>
                         </div>
@@ -200,12 +212,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="gas_meter" value="1">‌دارد
+                                    <input type="radio" name="gas_meter" value="1"
+                                           @if($basic_information->gas_meter) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="gas_meter" value="0" checked>ندارد
+                                    <input type="radio" name="gas_meter" value="0"
+                                           @if(!$basic_information->gas_meter) checked @endif>ندارد
                                 </label>
                             </div>
 
@@ -216,12 +230,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="guard" value="1">‌دارد
+                                    <input type="radio" name="guard" value="1"
+                                           @if($basic_information->guard) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="guard" value="0" checked>ندارد
+                                    <input type="radio" name="guard" value="0"
+                                           @if(!$basic_information->guard) checked @endif>ندارد
                                 </label>
                             </div>
                         </div>
@@ -233,12 +249,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="water_meter" value="1">‌دارد
+                                    <input type="radio" name="water_meter" value="1"
+                                           @if($basic_information->water_meter) checked @endif>‌دارد
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="water_meter" value="0" checked>ندارد
+                                    <input type="radio" name="water_meter" value="0"
+                                           @if(!$basic_information->water_meter) checked @endif>ندارد
                                 </label>
                             </div>
                         </div>

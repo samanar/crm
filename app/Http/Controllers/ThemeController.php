@@ -25,7 +25,7 @@ class ThemeController extends Controller
         $user->theme = $request->input('theme');
         $user->rtl = ($request->input('rtl')) ? 0 : 1;
         $user->save();
-        return redirect()->home();
+        return back();
 
     }
 }

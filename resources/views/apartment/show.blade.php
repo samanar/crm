@@ -5,24 +5,12 @@
 @section('content')
 
     <div class="page-header">
-        <h2><i class="fa fa-info-circle" aria-hidden="true"></i>اطلاعات مجتمع </h2>
+        <h2><i class="fa fa-info-circle" aria-hidden="true"></i> اطلاعات مجتمع </h2>
         <p>در این قسمت میتواند تمام اطلاعات مجتمع مورد نظر را مشاهده نمایید</p>
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-6">
-                    <a href="{{ route('apartment.edit' , $apartment->id) }}" class="btn btn-success btn-block btn-sm">ویرایش </a>
-                </div>
-                <div class="col-sm-6">
-                    <button class="btn btn-danger btn-block btn-sm"
-                            id="delete_apartment"
-                            data-id="{{ $apartment->id }}" data-code="{{ $apartment->code }}"> حذف
-                    </button>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 well margin_top_20">
                 <div class="row">
@@ -64,5 +52,16 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                @include('apartment.partials.apartment_panel')
+            </div>
+
+            <div class="col-sm-6">
+                @include('apartment.partials.basic_information_panel')
+            </div>
+        </div>
 
 @endsection

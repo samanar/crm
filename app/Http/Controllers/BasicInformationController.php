@@ -118,8 +118,7 @@ class BasicInformationController extends Controller
         $apartment->save();
 
 
-//        Todo : Fix the redirect route after creating it
-        return redirect()->route('home');
+        return redirect()->route('basic_information.index');
     }
 
     /**
@@ -195,8 +194,8 @@ class BasicInformationController extends Controller
         $apartment->status = $request->input('status');
         $apartment->save();
 
-//        Todo : Fix the redirect route after creating it
-        return redirect()->route('home');
+        $request->session()->flash('success', " اطلاعات پایه مجتمع با کد $apartment->code با موفقیت ویرایش شد ");
+        return redirect()->route('basic_information.index');
     }
 
     /**
@@ -207,6 +206,10 @@ class BasicInformationController extends Controller
      */
     public function destroy(BasicInformation $basicInformation)
     {
+        $apartment = $basicInformation->apartment;
+        $apartment->basic_information_id = null;
+        $apartment->save();
 
+        $basicInformation->delete();
     }
 }

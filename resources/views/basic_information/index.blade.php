@@ -4,7 +4,7 @@
 @section('content')
     <div class="page-header">
         <h2>
-            <i class="fa fa-list" aria-hidden="true"></i> لیست آپارتمان ها
+            <i class="fa fa-list" aria-hidden="true"></i> لیست چک لیست اطلاعات پایه مجتمع ها
         </h2>
         <p>تمامی اطلاعات پایه ثبت شده برای مجتمع ها در زیر لیست شده اند</p>
     </div>
@@ -36,7 +36,7 @@
                     <a class="btn btn-info "
                        href="{{ route('basic_information.show' , $basic_information->id) }}">نمایش اطلاعات</a>
                     <a class="btn btn-success "
-                       href="{{ route('apartment.show' , $basic_information->apartment->id) }}">ویرایش اطلاعات</a>
+                       href="{{ route('basic_information.edit' , $basic_information->id) }}">ویرایش اطلاعات</a>
                     <button class="btn btn-danger basic_information_delete"
                             data-id="{{ $basic_information->id }}"
                             data-code="{{ $basic_information->apartment->code }}"

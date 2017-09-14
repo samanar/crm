@@ -10,4 +10,9 @@ class Apartment extends Model
     {
         return $this->hasOne('App\BasicInformation');
     }
+
+    public function technicalInformation()
+    {
+        return $this->hasMany('App\TechnicalInformation');
+    }
 }

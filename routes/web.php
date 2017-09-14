@@ -16,6 +16,14 @@
 Auth::routes();
 
 
+// TechnicalInformation resource routes
+
+Route::resource('technical_information', 'TechnicalInformationController',
+    ["except" => ["create"]]);
+Route::get('technical_information/create/{apartment_id}', 'TechnicalInformationController@create')
+    ->name('technical_information.create');
+
+
 // basic_information resource routes
 Route::resource('basic_information', 'BasicInformationController', ['except' => ['create']]);
 Route::get('basic_information/create/{apartment_id}', 'BasicInformationController@create')
