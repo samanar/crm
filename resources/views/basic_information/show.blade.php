@@ -19,7 +19,7 @@
                 <div class="col-sm-6">
                     <button class="btn btn-danger btn-block btn-sm"
                             id="delete_basic_information"
-                            data-id="{{ $apartment->id }}" data-code="{{ $apartment->code }}"> حذف
+                            data-id="{{ $basic_information->id }}" data-code="{{ $apartment->code }}"> حذف
                     </button>
                 </div>
             </div>

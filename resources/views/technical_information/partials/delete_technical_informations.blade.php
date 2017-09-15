@@ -3,6 +3,7 @@
 @endpush
 
 @push('scripts')
+
     <script src="{{ asset('js/alert.min.js') }}"></script>
     <script>
         $(document).ready(function () {
@@ -28,7 +29,7 @@
                     };
                     $.ajax({
                         method: "DELETE",
-                        url: "/basic_information/" + data_id,
+                        url: "/technical_information/" + data_id,
                         data: data,
                         complete: function () {
                             location.reload();

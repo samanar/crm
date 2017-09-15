@@ -24,20 +24,31 @@
                     </li>
                 @endif
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                    <a class="dropdown-toggle" data-toggle="dropdown"
+                       role="button" aria-expanded="false">Forms
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li>
+                            <a href="{{ route("apartment.index") }}">
+                                Apartments
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route("basic_information.index") }}">
+                                Basic Information
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route("technical_information.index") }}">
+                                Technical Information
+                            </a>
+                        </li>
                         <li class="divider"></li>
                         <li><a href="#">Separated link</a></li>
                         <li class="divider"></li>
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-
-
             </ul>
 
             <ul class="nav navbar-nav navbar-left">
