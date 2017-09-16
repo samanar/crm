@@ -15,4 +15,9 @@ class Apartment extends Model
     {
         return $this->hasMany('App\TechnicalInformation');
     }
+
+    public function elevator_checklists()
+    {
+        return $this->hasMany('App\ElevatorChecklist');
+    }
 }

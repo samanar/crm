@@ -37,5 +37,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'ahmadianrad.saman@gmail.com',
             'password' => bcrypt('0019421664'),
         ]);
+
+        DB::table('apartments')->insert([
+           'code' =>'test',
+           'manager_name' => 'saman',
+           'manager_phone' => '09379084098',
+           'address' => 'lsadkfasudflkajsdf',
+           'description' => 'asjkdhfkjashdfklhaslkhfd'
+        ]);
     }
 }
