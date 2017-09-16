@@ -4,10 +4,10 @@
 @section('content')
     <div class="page-header">
         <h2>
-            <i class="fa fa-plus-square-o" aria-hidden="true"></i> ویرایش اطلاعات مجتمع مسکونی با
+            <i class="fa fa-plus-square-o" aria-hidden="true"></i> ویرایش چک لیست مجتمع مسکونی با
             کد {{ $elevator_checklist->apartment->code }}
         </h2>
-        <p>برای ویرایش اطلاعات پایه مجتمع فرم زیر را ثبت کنید</p>
+        <p>برای ویرایش چک لیست  مجتمع فرم زیر را ثبت کنید</p>
     </div>
 
 

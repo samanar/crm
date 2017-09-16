@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Apartment;
-use App\ElevatorCheckList;
+use App\EngineRoomChecklist;
 use Illuminate\Http\Request;
+use App\Apartment;
 use Crypt;
 
-class ElevatorCheckListController extends Controller
+class EngineRoomChecklistController extends Controller
 {
-
     private function rules()
     {
         return [
@@ -25,9 +24,9 @@ class ElevatorCheckListController extends Controller
      */
     public function index()
     {
-        $elevator_checklists = ElevatorCheckList::paginate(10);
-        return view('elevator_checklist.index')
-            ->with('elevator_checklists', $elevator_checklists);
+        $engine_room_checklists = EngineRoomChecklist::paginate(10);
+        return view('engine_room_checklist.index')
+            ->with('engine_room_checklists', $engine_room_checklists);
     }
 
     /**
@@ -38,7 +37,7 @@ class ElevatorCheckListController extends Controller
     public function create($id)
     {
         $aparment = Apartment::find($id);
-        return view('elevator_checklist.create')
+        return view('engine_room_checklist.create')
             ->with('apartment', $aparment);
     }
 
@@ -58,74 +57,74 @@ class ElevatorCheckListController extends Controller
                 $request->merge([$key => true]);
             }
         }
-        $elevator_checklist = new ElevatorCheckList;
-        $elevator_checklist->fill($request->all());
+        $engine_room_checklist = new EngineRoomChecklist;
+        $engine_room_checklist->fill($request->all());
         $apartment_id = Crypt::decrypt($request->input('apartment_id'));
-        $elevator_checklist->apartment_id = $apartment_id;
-        $elevator_checklist->save();
+        $engine_room_checklist->apartment_id = $apartment_id;
+        $engine_room_checklist->save();
 
-        $request->session()->flash('success', "چک لیست آسانسور با موفقیت ایجاد شد");
-        return redirect()->route('elevator_checklist.index');
+        $request->session()->flash('success', "چک لیست موتورخانه با موفقیت ایجاد شد");
+        return redirect()->route('engine_room_checklist.index');
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ElevatorCheckList $elevatorCheckList
+     * @param  \App\EngineRoomChecklist $elevatorCheckList
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $elevatorCheckList = ElevatorCheckList::find($id);
-        return view('elevator_checklist.show')->with('elevator_checklist', $elevatorCheckList);
+        $engine_room_checklist = EngineRoomChecklist::find($id);
+        return view('engine_room_checklist.show')->with('engine_room_checklist', $engine_room_checklist);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ElevatorCheckList $elevatorCheckList
+     * @param  \App\EngineRoomChecklist $elevatorCheckList
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $elevatorCheckList = ElevatorCheckList::find($id);
-        return view('elevator_checklist.edit')->with('elevator_checklist', $elevatorCheckList);
+        $engine_room_checklist = EngineRoomChecklist::find($id);
+        return view('engine_room_checklist.edit')->with('engine_room_checklist', $engine_room_checklist);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\ElevatorCheckList $elevatorCheckList
+     * @param  \App\EngineRoomChecklist $elevatorCheckList
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $elevator_checklist = ElevatorCheckList::find($id);
+        $engine_room_checklist = EngineRoomChecklist::find($id);
         foreach ($request->all() as $key => $value) {
             if ($value == "on") {
                 echo $key . "<br>";
                 $request->merge([$key => true]);
             }
         }
-        $elevator_checklist->fill($request->all());
-        $elevator_checklist->save();
+        $engine_room_checklist->fill($request->all());
+        $engine_room_checklist->save();
 
 
-        $request->session()->flash('success', "چک لیست آسانسور با موفقیت ویرایش شد");
+        $request->session()->flash('success', "چک لیست موتورخانه با موفقیت ویرایش شد");
 
-        return redirect()->route('elevator_checklist.index');
+        return redirect()->route('engine_room_checklist.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ElevatorCheckList $elevatorCheckList
+     * @param  \App\EngineRoomChecklist $elevatorCheckList
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        ElevatorCheckList::destroy($id);
+        EngineRoomChecklist::destroy($id);
     }
 }

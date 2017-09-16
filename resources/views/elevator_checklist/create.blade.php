@@ -4,9 +4,9 @@
 @section('content')
     <div class="page-header">
         <h2>
-            <i class="fa fa-plus-square-o" aria-hidden="1"></i> افزودن اطلاعات پایه مجتمع با کد {{ $apartment->code }}
+            <i class="fa fa-plus-square-o" aria-hidden="1"></i> افزودن چک لیست آسانسور مجتمع با کد {{ $apartment->code }}
         </h2>
-        <p>برای افزودن اطلاعات پایه مجتمع فرم زیر را پر کنید</p>
+        <p>برای افزودن اچک لیست آسانسور مجتمع فرم زیر را پر کنید</p>
     </div>
 
     <div class="container">

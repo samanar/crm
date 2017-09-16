@@ -15,12 +15,21 @@
 //auth routes
 Auth::routes();
 
-// TechnicalInformation resource routes
+// ElevatorChecklist resource routes
+
+Route::resource('engine_room_checklist', 'EngineRoomChecklistController',
+    ["except" => ["create"]]);
+Route::get('engine_room_checklist/create/{apartment_id}', 'EngineRoomChecklistController@create')
+    ->name('engine_room_checklist.create');
+
+// ElevatorChecklist resource routes
 
 Route::resource('elevator_checklist', 'ElevatorCheckListController',
     ["except" => ["create"]]);
 Route::get('elevator_checklist/create/{apartment_id}', 'ElevatorCheckListController@create')
     ->name('elevator_checklist.create');
+
+
 // TechnicalInformation resource routes
 
 Route::resource('technical_information', 'TechnicalInformationController',
