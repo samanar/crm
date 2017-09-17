@@ -6,7 +6,7 @@
 
     <div class="page-header">
         <h2><i class="fa fa-info-circle" aria-hidden="true"></i> اطلاعات پایه مجتمع با
-            کد {{ $elevator_checklist->apartment->code }} </h2>
+            کد {{ $engine_room_checklist->apartment->code }} </h2>
         <p>در این قسمت میتواند تمام اطلاعات پایه مجتمع مورد نظر را مشاهده نمایید</p>
     </div>
 
@@ -14,12 +14,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="col-sm-6">
-                    <a href="{{ route('elevator_checklist.edit' , $elevator_checklist->id) }}" class="btn btn-success btn-block btn-sm">ویرایش </a>
+                    <a href="{{ route('engine_room_checklist.edit' , $engine_room_checklist->id) }}"
+                       class="btn btn-success btn-block btn-sm">ویرایش </a>
                 </div>
                 <div class="col-sm-6">
                     <button class="btn btn-danger btn-block btn-sm"
-                            id="delete_elevator_checklist"
-                            data-id="{{ $elevator_checklist->id }}" data-code="{{ $elevator_checklist->apartment->code }}"> حذف
+                            id="delete_engine_room_checklist"
+                            data-id="{{ $engine_room_checklist->id }}"
+                            data-code="{{ $engine_room_checklist->apartment->code }}"> حذف
                     </button>
                 </div>
             </div>
@@ -39,202 +41,259 @@
             <tbody>
             <tr>
                 <td>
-                    بازدید سیم کشی تابلو برق(کاور دار بودن یا نبودن سیم ها)
+                    تمییز بودن موتور خانه
+                </td>
+                <td>
+                    <input type="checkbox" name="clean" class="checkbox"
+                           @if($engine_room_checklist->clean) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->clean_description }}
+                </td>
+            </tr>
+
+            <tr>
+                <td>عدم وجود آب و رسوب در اطراف پمپ ها
 
                 </td>
                 <td>
-                    <input type="checkbox" name="board_wire" class="checkbox"
-                           @if($elevator_checklist->board_wire) checked @endif>
+                    <input type="checkbox" name="water" class="checkbox"
+                           @if($engine_room_checklist->water) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->board_wire_description }}
+                    {{ $engine_room_checklist->water_description }}
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    سلامت سیم ها و فیوز ها ( عدم خال زدگی)
-
+                    لوله ها
                 </td>
                 <td>
-                    <input type="checkbox" name="wire_health" class="checkbox"
-                           @if($elevator_checklist->wire_health) checked @endif>
+                    <input type="checkbox" name="pipes" class="checkbox"
+                           @if($engine_room_checklist->pipes) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->wire_health_description }}
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    مرتب بودن یا نبودن سیم کشی
-                </td>
-                <td>
-                    <input type="checkbox" name="wire_sort" class="checkbox"
-                           @if($elevator_checklist->wire_sort) checked @endif>
-                </td>
-                <td>
-                    {{ $elevator_checklist->wire_sort_description }}
+                    {{ $engine_room_checklist->pipes_description }}
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    کنترل تمیزی تابلو برق
+                    عایق لوله ها
                 </td>
                 <td>
-                    <input type="checkbox" name="clean_board" class="checkbox"
-                           @if($elevator_checklist->clean_board) checked @endif>
+                    <input type="checkbox" name="insulation" class="checkbox"
+                           @if($engine_room_checklist->insulation) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->clean_board_description }}
+                    {{ $engine_room_checklist->insulation_description }}
                 </td>
             </tr>
             <tr>
-                <td>
-                    نحوه ی کارکرد آسانسور در هنگام حرکت
-
+                <td>نوع مشعل موتور خانه
                 </td>
                 <td>
-                    <input type="checkbox" name="movement" class="checkbox"
-                           @if($elevator_checklist->movement) checked @endif>
+                    <input type="checkbox" name="torch_type" class="checkbox"
+                           @if($engine_room_checklist->torch_type) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->movement_description }}
+                    {{ $engine_room_checklist->torch_type_description }}
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    کنترل لنت ها و پاراشوت ها ( اتصال پاراشوت ها)
+                    کارکرد مشعل موتور خانه
                 </td>
                 <td>
-                    <input type="checkbox" name="brake" class="checkbox"
-                           @if($elevator_checklist->brake) checked @endif>
+                    <input type="checkbox" name="torch_performance" class="checkbox"
+                           @if($engine_room_checklist->torch_performance) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->brake_description }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    استحکام تسمه های کابین و تسمه
-
-                </td>
-
-                <td>
-                    <input type="checkbox" name="cable_strength" class="checkbox"
-                           @if($elevator_checklist->cable_strength) checked @endif>
-                </td>
-                <td>
-                    {{ $elevator_checklist->cable_strength_description }}
+                    {{ $engine_room_checklist->torch_performance_description }}
                 </td>
             </tr>
             <tr>
                 <td>
-                    عدم وجود ضربه و تقه های شدید هنگام حرکت بر موتور
+                    نوع دیگ ها
 
                 </td>
+
                 <td>
-                    <input type="checkbox" name="strike" class="checkbox"
-                           @if($elevator_checklist->strike) checked @endif>
+                    <input type="checkbox" name="pot_type" class="checkbox"
+                           @if($engine_room_checklist->pot_type) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->strike_description }}
+                    {{ $engine_room_checklist->pot_type_description }}
                 </td>
             </tr>
             <tr>
                 <td>
-                    بازدید روغن کاری آسانسور ( عدم روغن ریزی، روغن کاری )
+                    کارکرد دیگ ها
+
+                </td>
+                <td>
+                    <input type="checkbox" name="pot_performance" class="checkbox"
+                           @if($engine_room_checklist->pot_performance) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->pot_performance_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    چیلر ( در صورت وجود)
+
+                </td>
+                <td>
+                    <input type="checkbox" name="chiller" class="checkbox"
+                           @if($engine_room_checklist->chiller) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->chiller_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    برج خنک کننده ( در صورت وجود)
+
+
+                </td>
+                <td>
+                    <input type="checkbox" name="cooling_tower" class="checkbox"
+                           @if($engine_room_checklist->cooling_tower) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->cooling_tower_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    پمپ ها
+
+                </td>
+                <td>
+                    <input type="checkbox" name="pump" class="checkbox"
+                           @if($engine_room_checklist->pump) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->pump_description }}
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    حصول اطمینان از عدم نشت و روغن ریزی
 
                 </td>
                 <td>
                     <input type="checkbox" name="oil" class="checkbox"
-                           @if($elevator_checklist->oil) checked @endif>
+                           @if($engine_room_checklist->oil) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->oil_description }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    بازدید نور کابین
-
-                </td>
-                <td>
-                    <input type="checkbox" name="light" class="checkbox"
-                           @if($elevator_checklist->light) checked @endif>
-                </td>
-                <td>
-                    {{ $elevator_checklist->light_description }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    بازدید سیم بکسل های اصلی و گاورنر
-
-                </td>
-                <td>
-                    <input type="checkbox" name="main_cable" class="checkbox"
-                           @if($elevator_checklist->main_cable) checked @endif>
-                </td>
-                <td>
-                    {{ $elevator_checklist->main_cable_description }}
+                    {{ $engine_room_checklist->oil_description }}
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    بازدید از اتصال درب کابین به سقف کابین
+                    بازدید از فلکه های اصلی
 
                 </td>
                 <td>
-                    <input type="checkbox" name="floor" class="checkbox"
-                           @if($elevator_checklist->floor) checked @endif>
+                    <input type="checkbox" name="main_gates" class="checkbox"
+                           @if($engine_room_checklist->main_gates) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->floor_description }}
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    درستی عملکرد کلید ها
-
-                </td>
-                <td>
-                    <input type="checkbox" name="keys" class="checkbox"
-                           @if($elevator_checklist->keys) checked @endif>
-                </td>
-                <td>
-                    {{ $elevator_checklist->keys_description }}
+                    {{ $engine_room_checklist->main_gates_description }}
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    تنظیم درب ها نسبت به کابین ( شاقول بودن درب ها)
+                    بازدید از تابلو فرمان و تمییز کردن آن
 
 
+                </td>
+                <td>
+                    <input type="checkbox" name="command_board" class="checkbox"
+                           @if($engine_room_checklist->command_board) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->command_board_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    بررسی صدا ها و لرزش های غیر عادی در تجهیزات
+                </td>
+                <td>
+                    <input type="checkbox" name="noise" class="checkbox"
+                           @if($engine_room_checklist->noise) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->noise_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    بررسی و بازدید درجه حرارت آب رادیاتور
+                </td>
+                <td>
+                    <input type="checkbox" name="temperature" class="checkbox"
+                           @if($engine_room_checklist->temperature) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->temperature_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    بررسی وضعیت سیمان کاری پشت درب دیگ های فولادی
                 </td>
                 <td>
                     <input type="checkbox" name="door" class="checkbox"
-                           @if($elevator_checklist->door) checked @endif>
+                           @if($engine_room_checklist->door) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->door_description }}
+                    {{ $engine_room_checklist->door_description }}
                 </td>
             </tr>
             <tr>
                 <td>
-                    روان و بدون صدا بسته شدن درب ها
+                    وضعیت مناسب فشار و دمای دیگ و درجه حرارت بخار و آب
                 </td>
                 <td>
-                    <input type="checkbox" name="sound" class="checkbox"
-                           @if($elevator_checklist->sound) checked @endif>
+                    <input type="checkbox" name="pressure" class="checkbox"
+                           @if($engine_room_checklist->pressure) checked @endif>
                 </td>
                 <td>
-                    {{ $elevator_checklist->sound_description }}
+                    {{ $engine_room_checklist->pressure_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    وضعیت فشار ورودی و خروجی از پمپ
+                </td>
+                <td>
+                    <input type="checkbox" name="pump_pressure" class="checkbox"
+                           @if($engine_room_checklist->pump_pressure) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->pump_pressure_description }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    بازدید ظاهری از سالم بودن ترانس
+                </td>
+                <td>
+                    <input type="checkbox" name="trans" class="checkbox"
+                           @if($engine_room_checklist->trans) checked @endif>
+                </td>
+                <td>
+                    {{ $engine_room_checklist->trans_description }}
                 </td>
             </tr>
             </tbody>
@@ -258,7 +317,7 @@
             offText: 'عدم تایید',
             onColor: 'success',
             offColor: 'danger',
-            readonly : true
+            readonly: true
         });
     </script>
 @endpush

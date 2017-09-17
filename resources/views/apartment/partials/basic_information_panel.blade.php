@@ -22,7 +22,7 @@
 @else
 
     <div class="panel panel-default">
-        <div class="panel-heading">چک لیست اطلاعات پایه مجتمع</div>
+        <div class="panel-heading"> اطلاعات پایه مجتمع</div>
         <div class="panel-body">
             <div class="list-group">
                 <a href="{{ route('basic_information.create' , $apartment->id) }}"

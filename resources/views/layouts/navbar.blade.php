@@ -44,9 +44,16 @@
                             </a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li>
+                            <a href="{{ route("elevator_checklist.index") }}">
+                                Elevator Checklist
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route("engine_room_checklist.index") }}">
+                                Engine Room Checklist
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
