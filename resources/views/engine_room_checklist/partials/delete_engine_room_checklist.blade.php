@@ -6,7 +6,7 @@
     <script src="{{ asset('js/alert.min.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $(".elevator_checklist_delete").click(function () {
+            $(".engine_room_checklist_delete").click(function () {
                 var data_id = $(this).attr("data-id");
                 var data_code = $(this).attr('data-code');
                 swal({
@@ -28,7 +28,7 @@
                     };
                     $.ajax({
                         method: "DELETE",
-                        url: "/elevator_checklist/" + data_id,
+                        url: "/engine_room_checklist/" + data_id,
                         data: data,
                         complete: function () {
                             location.reload();
@@ -38,7 +38,7 @@
             });
 
 
-            $("#delete_elevator_checklist").click(function () {
+            $("#delete_engine_room_checklist").click(function () {
                 var data_id = $(this).attr("data-id");
                 var data_code = $(this).attr('data-code');
 
@@ -61,10 +61,10 @@
                     };
                     $.ajax({
                         method: "DELETE",
-                        url: "/elevator_checklist/" + data_id,
+                        url: "/engine_room_checklist/" + data_id,
                         data: data,
                         complete: function (data, status) {
-                            window.location.href = "/elevator_checklist";
+                            window.location.href = "/engine_room_checklist";
                         }
                     });
                 });

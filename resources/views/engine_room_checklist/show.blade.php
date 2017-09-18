@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@include('elevator_checklist.partials.delete_elevator_checklist')
+@include('engine_room_checklist.partials.delete_engine_room_checklist')
 
 @section('content')
 

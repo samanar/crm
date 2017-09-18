@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@include('apartment.partials.delete_apartments_js')
+@include('engine_room_checklist.partials.delete_engine_room_checklist')
 
 @section('content')
     <div class="page-header">
@@ -11,7 +11,7 @@
 
     @include("layouts.flash")
 
-    @include('elevator_checklist.partials.delete_elevator_checklist')
+    @include('engine_room_checklist.partials.delete_engine_room_checklist')
 
     <table id="table" class="table table-striped table-hover">
         <thead>
